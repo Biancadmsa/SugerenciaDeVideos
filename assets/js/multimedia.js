@@ -1,4 +1,7 @@
 // La función flecha autoejecutable devuelve un objeto con la clase Multimedia
+
+// Definir un módulo, el cual será una función invocada inmediatamente (IIFE)
+// función autoejecutable (Self-Executing Anonymous Function)
 const sugerenciaDeVideos = (() => {
     // Defino la clase Multimedia con las propiedades url, id e inicio
     class Multimedia {
@@ -6,6 +9,7 @@ const sugerenciaDeVideos = (() => {
         this._url = url; // La url del video
         this._id = id; // El id del iframe donde se mostrará el video
         this._inicio = 0; // La hora de inicio del video
+      
       }
   
       // Getter y setter de la propiedad url
@@ -36,7 +40,7 @@ const sugerenciaDeVideos = (() => {
       setInicio(inicio) {
         this._inicio = inicio;
         const iframe = document.getElementById(this._id);
-        // Se agrega el parámetro 'start' a la url del video para establecer el hora de inicio
+        // Se agrega el parámetro '?start' a la url del video para establecer el hora de inicio. Con ?start= comenzar o contarse a partir de un punto
         iframe.src += `?start=${this._inicio}`;
       }
     }
